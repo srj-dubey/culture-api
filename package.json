@@ -1,0 +1,39 @@
+{
+  "name": "culture-api-gql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --collectCoverage",
+    "prebuild": "rimraf dist/",
+    "build": "tsc",
+    "start": "npx ts-node index.ts",
+    "server": "nodemon --exec npx ts-node index.ts",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "@prisma/client": "^3.1.1",
+    "@types/cors": "^2.8.12",
+    "@types/hapi__joi": "^17.1.7",
+    "@types/node": "^16.10.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "prisma": "^3.1.1",
+    "ts-node": "^10.2.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/body-parser": "^1.19.1",
+    "@types/express": "^4.17.10",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/node": "^14.14.20",
+    "nodemon": "^1.19.1",
+    "typescript": "^4.4.3"
+  }
+}

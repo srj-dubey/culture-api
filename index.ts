@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import express from 'express'
 import { json, urlencoded } from 'body-parser'
 import cors from 'cors'
+import { User} from './models/user/index'
 
 //Routes import
 import  router  from './routes'
@@ -10,7 +11,8 @@ const prisma = new PrismaClient()
 
 async function main() {
   // Connect the client
-  await prisma.$connect()
+	await prisma.$connect()
+	console.log("Database connected!!")
   // ... you will write your Prisma Client queries here
 }
 
@@ -33,4 +35,6 @@ main()
   })
 
 //Creating Server on the following port
-app.listen(process.env.PORT || 5000)
+app.listen(() => {
+	console.log("Port running",process.env.PORT || 5000)
+})

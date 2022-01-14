@@ -10,33 +10,33 @@ import router from "./routes";
 const prisma = new PrismaClient();
 
 async function main() {
-	// Connect the client
-	await prisma.$connect().then(() => console.log("Database connected!"));
-	// ... you will write your Prisma Client queries here
+  // Connect the client
+  await prisma.$connect().then(() => console.log("Database connected!"));
+  // ... you will write your Prisma Client queries here
 }
 
 const app = express();
 app.use(cors());
 app.use(json());
 app.use(
-	urlencoded({
-		extended: true,
-	})
+  urlencoded({
+    extended: true,
+  })
 );
 
 //Route Middleware
 app.use(router);
 
 main()
-	.catch((e) => {
-		throw e;
-	})
-	.finally(async () => {
-		await prisma.$disconnect();
-	});
+  .catch((e) => {
+    throw e;
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
 
 //Creating Server on the following port
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-	console.log(`Server running -> ${port}`);
+  console.log(`Server running -> ${port}`);
 });
